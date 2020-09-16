@@ -4,7 +4,7 @@
 $emailTo = "darzinajay@gmail.com";
 
 // ENTER IDENTIFIER
-$emailIdentifier =  "Message sent via contact form from " . $_SERVER["Darzin"];
+$emailIdentifier =  "Message sent via contact form from " . $_SERVER["SERVER_NAME"];
 
 
 if($_POST) {
@@ -17,15 +17,15 @@ if($_POST) {
     $array = array("nameMessage" => "", "emailMessage" => "", "messageMessage" => "","succesMessage" => "");
 
     if($name == "") {
-    	$array["nameMessage"] = "x";
+    	$array["nameMessage"] = "";
     }
 	
     if(!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
-        $array["emailMessage"] = "x";
+        $array["emailMessage"] = "";
     }
 	
     if($message == "") {
-        $array["messageMessage"] = "x";
+        $array["messageMessage"] = "";
     }
 	
     if($name != "" && filter_var($clientEmail, FILTER_VALIDATE_EMAIL) && $message != "" && $fhp_input == "") {
